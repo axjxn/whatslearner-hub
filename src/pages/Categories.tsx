@@ -5,8 +5,15 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 
+// Define the type for a category
+interface Category {
+  id: number;
+  name: string;
+  courseCount: number;
+}
+
 // Mock data - replace with actual API call when backend is integrated
-const categories = [
+const categories: Category[] = [
   { id: 1, name: 'Web Development', courseCount: 12 },
   { id: 2, name: 'Data Science', courseCount: 8 },
   { id: 3, name: 'Mobile Development', courseCount: 6 },
@@ -19,7 +26,7 @@ const Categories = () => {
   const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
-  const { data: categoriesData, isLoading } = useQuery({
+  const { data: categoriesData, isLoading } = useQuery<Category[]>({
     queryKey: ['categories'],
     queryFn: async () => {
       // Simulate API call
