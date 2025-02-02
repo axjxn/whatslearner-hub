@@ -6,12 +6,14 @@ import { Testimonials } from "@/components/Testimonials";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-whatsapp-light to-white">
+    <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <FeaturedCourses />
-      <Statistics />
-      <Testimonials />
+      <main>
+        <Hero />
+        <FeaturedCourses />
+        <Statistics />
+        <Testimonials />
+      </main>
     </div>
   );
 };
